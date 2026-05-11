@@ -30,7 +30,7 @@ function RegisterPage() {
       <div className="absolute top-8 left-8 z-30 hidden md:block">
         <NavLink to="/" className="flex items-center">
           <img
-            src="/src/assets/logo.png"
+            src="./assets/logo.png"
             alt="CampusOrigin Logo"
             className="w-44 object-contain"
           />

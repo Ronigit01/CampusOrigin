@@ -30,7 +30,7 @@ function LoginPage() {
       <div className="absolute top-8 left-8 z-30 hidden md:block">
         <NavLink to="/" className="flex items-center">
           <img
-            src="/logo.png"
+            src="./assets/logo.png"
             alt="CampusOrigin Logo"
             className="w-44 object-contain"
           />
@@ -139,7 +139,7 @@ function LoginPage() {
                     : "border-white/10 bg-white/[0.03] text-gray-400"
                 }`}
               >
-                Junior Login 
+                Junior Login
               </button>
 
               <button
