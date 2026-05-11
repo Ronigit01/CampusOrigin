@@ -323,7 +323,7 @@ const navItems = [
             <NavLink to="/" className="flex items-center">
               <div className="w-32 md:w-44">
                 <img
-                  src="/src/assets/logo.png"
+                  src="./assets/logo.png"
                   alt="CampusOrigin Logo"
                   className="w-full h-auto"
                 />

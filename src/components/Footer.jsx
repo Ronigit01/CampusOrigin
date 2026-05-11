@@ -163,7 +163,7 @@ function Footer() {
           {/* Brand */}
           <div>
             <NavLink to="/" className="inline-block">
-              <img src="/assets/logo.png" alt="CampusOrigin" className="w-44" />
+              <img src="./assets/logo.png" alt="CampusOrigin" className="w-44" />
             </NavLink>
 
             <p className="text-gray-400 leading-relaxed mt-8">
