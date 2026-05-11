@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 
 function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -265,13 +266,32 @@ function Hero() {
   // Mobile menu state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    "Senior-Junior Connect",
-    "Communities",
-    "Lost & Found",
-    "Complaint Box",
-    "About Us",
-  ];
+const navItems = [
+  {
+    name: "Senior-Junior Connect",
+    path: "/seniorjuniorconnect",
+  },
+  {
+    name: "Communities",
+    path: "/communities",
+  },
+  {
+    name: "Lost & Found",
+    path: "/lostandfound",
+  },
+  {
+    name: "Complaint Box",
+    path: "/complaint",
+  },
+  {
+    name: "Result",
+    path: "/result",
+  },
+  {
+    name: "About Us",
+    path: "/about",
+  },
+];
 
   return (
     <div className="bg-black text-white min-h-screen overflow-hidden">
@@ -300,27 +320,27 @@ function Hero() {
         <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center">
+            <NavLink to="/" className="flex items-center">
               <div className="w-32 md:w-44">
                 <img
-                  src="./assets/logo.png"
+                  src="/src/assets/logo.png"
                   alt="CampusOrigin Logo"
                   className="w-full h-auto"
                 />
               </div>
-            </div>
-
+            </NavLink>
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
-                  key={item}
-                  href="#"
+                <NavLink
+                  key={item.name}
+                  to={item.path}
                   className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
                 >
-                  {item}
+                  {item.name}
+
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                </NavLink>
               ))}
             </nav>
 
@@ -363,12 +383,12 @@ function Hero() {
             {/* Desktop CTA Button - NAVBAR JOIN BUTTON */}
             <div className="relative hidden md:inline-flex group">
               <div className="absolute rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg group-hover:shadow-cyan-500/50 transition duration-300"></div>
-              <a
-                href="#"
-                className="relative px-6 py-2 rounded-full bg-black text-white text-sm font-medium"
+              <NavLink
+                to="/register"
+                className="relative px-2 md:px-8 py-2 md:py-4 rounded-full bg-black text-white font-semibold text-sm md:text-lg transition duration-300 group-hover:scale-105 w-full text-center block"
               >
-                Join Campus
-              </a>
+                🚀 Join Campus
+              </NavLink>
             </div>
           </div>
 
@@ -390,13 +410,13 @@ function Hero() {
                   {/* Mobile Join Campus Button - Same style as desktop */}
                   <div className="relative group w-full">
                     <div className="absolute rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg group-hover:shadow-cyan-500/50 transition duration-300"></div>
-                    <a
-                      href="#"
+                    <NavLink
+                      to="/register"
                       className="relative block w-full py-3 text-center rounded-full bg-black text-white font-medium"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Join Campus
-                    </a>
+                    </NavLink>
                   </div>
                 </div>
               </div>
@@ -462,12 +482,13 @@ function Hero() {
               {/* Main CTA Button - Same style as desktop */}
               <div className="relative group w-full sm:w-auto">
                 <div className="absolute rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg group-hover:shadow-cyan-500/50 transition duration-300"></div>
-                <a
+                <NavLink
+                  to="/register"
                   href="#"
                   className="relative px-2  md:px-8 py-2 md:py-4 rounded-full bg-black text-white font-semibold text-sm md:text-lg transition duration-300 group-hover:scale-105 w-full text-center block"
                 >
                   🚀 Join Your Campus
-                </a>
+                </NavLink>
               </div>
 
               <a
@@ -492,6 +513,7 @@ function Hero() {
               <div className="w-10 h-10 md:w-12 md:h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-3 md:mb-4">
                 <span className="text-xl md:text-2xl">🔍</span>
               </div>
+
               <h3 className="text-base md:text-lg font-semibold text-white mb-2">
                 AI Lost & Found
               </h3>

@@ -1,17 +1,27 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import {
-  Sparkles,
-  Users,
   ShieldCheck,
   Search,
   ArrowRight,
   Network,
-  MessageSquare,
   GraduationCap,
 } from "lucide-react";
 
 function FeaturesSection() {
   const features = [
+    {
+      icon: GraduationCap,
+      title: "Senior-Junior Connect",
+      description:
+        "Verified mentorship ecosystem where juniors can connect with experienced seniors for academics, placements, projects, internships, coding guidance, and real campus support.",
+      gradient: "from-cyan-400 via-purple-400 to-pink-500",
+      glow: "bg-cyan-500/10",
+      size: "lg:col-span-2 lg:row-span-2",
+      link: "/register",
+    },
+
     {
       icon: Search,
       title: "AI Lost & Found",
@@ -19,16 +29,9 @@ function FeaturesSection() {
         "Upload lost or found items and let AI intelligently match belongings across the campus ecosystem.",
       gradient: "from-cyan-400 to-blue-500",
       glow: "bg-cyan-500/10",
-      size: "lg:col-span-2 lg:row-span-2",
+      link: "/lostandfound",
     },
-    {
-      icon: GraduationCap,
-      title: "Senior-Junior Connect",
-      description:
-        "Verified mentorship system for academic guidance, placements, and real student networking.",
-      gradient: "from-purple-400 to-pink-500",
-      glow: "bg-purple-500/10",
-    },
+
     {
       icon: Network,
       title: "Skill Communities",
@@ -36,7 +39,9 @@ function FeaturesSection() {
         "Join coding, design, startup, and AI communities to collaborate and grow together.",
       gradient: "from-pink-400 to-fuchsia-500",
       glow: "bg-pink-500/10",
+      link: "/communities",
     },
+
     {
       icon: ShieldCheck,
       title: "Anonymous Complaint Box",
@@ -45,19 +50,19 @@ function FeaturesSection() {
       gradient: "from-green-400 to-cyan-500",
       glow: "bg-green-500/10",
       size: "lg:col-span-2",
+      link: "/complaint",
     },
   ];
 
   return (
     <section className="relative py-32 bg-black overflow-hidden">
-      {/* Background Effects */}
+      {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Glow Blobs */}
         <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
 
         <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-purple-500/10 blur-[140px] rounded-full"></div>
 
-        {/* Grid Overlay */}
+        {/* Grid */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -71,9 +76,8 @@ function FeaturesSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Heading */}
+        {/* Heading */}
         <div className="text-center mb-24">
-          {/* Top Badge */}
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-cyan-500/20 bg-white/5 backdrop-blur-xl mb-8">
             <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
 
@@ -82,7 +86,6 @@ function FeaturesSection() {
             </span>
           </div>
 
-          {/* Heading */}
           <h2 className="text-5xl md:text-7xl font-light text-white leading-tight">
             Everything Students Need
             <span className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2">
@@ -90,22 +93,22 @@ function FeaturesSection() {
             </span>
           </h2>
 
-          {/* Description */}
           <p className="max-w-3xl mx-auto text-gray-400 text-lg mt-8 leading-relaxed">
             CampusOrigin combines mentorship, collaboration, communication,
             safety, and AI-powered tools into one intelligent campus ecosystem.
           </p>
         </div>
 
-        {/* Bento Feature Grid */}
+        {/* Feature Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 auto-rows-[320px]">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
-              <div
+              <NavLink
+                to={feature.link}
                 key={index}
-                className={`group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl p-[1px] hover:scale-[1.02] transition-all duration-500 ${
+                className={`group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl p-[1px] hover:scale-[1.02] transition-all duration-500 block ${
                   feature.size || ""
                 }`}
               >
@@ -114,17 +117,17 @@ function FeaturesSection() {
                   className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br ${feature.gradient}`}
                 ></div>
 
-                {/* Card Inner */}
+                {/* Inner */}
                 <div className="relative h-full rounded-[32px] bg-black/80 backdrop-blur-2xl overflow-hidden p-8 flex flex-col justify-between">
-                  {/* Glow Orb */}
+                  {/* Glow */}
                   <div
                     className={`absolute -top-20 -right-20 w-52 h-52 ${feature.glow} blur-[120px] rounded-full`}
                   ></div>
 
-                  {/* Floating Mini Glow */}
+                  {/* Small Glow */}
                   <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/[0.03] blur-3xl rounded-full"></div>
 
-                  {/* Top Content */}
+                  {/* Content */}
                   <div className="relative z-10">
                     {/* Icon */}
                     <div
@@ -148,21 +151,19 @@ function FeaturesSection() {
 
                   {/* Bottom */}
                   <div className="relative z-10 flex items-center justify-between mt-10">
-                    {/* Line */}
                     <div
                       className={`h-px flex-1 bg-gradient-to-r ${feature.gradient} opacity-20`}
                     ></div>
 
-                    {/* Arrow */}
                     <div className="ml-5 w-11 h-11 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-xl flex items-center justify-center group-hover:translate-x-1 transition duration-300">
                       <ArrowRight className="w-5 h-5 text-gray-300" />
                     </div>
                   </div>
 
-                  {/* Subtle Noise Overlay */}
+                  {/* Noise */}
                   <div className="absolute inset-0 opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
                 </div>
-              </div>
+              </NavLink>
             );
           })}
         </div>

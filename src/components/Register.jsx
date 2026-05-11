@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import {
+  User,
   Mail,
   Lock,
+  GraduationCap,
+  Building2,
   ArrowRight,
   Sparkles,
-  ShieldCheck,
-  Users,
-  GraduationCap,
 } from "lucide-react";
 
-function LoginPage() {
-  const [activeTab, setActiveTab] = useState("student");
+function RegisterPage() {
+  const [activeTab, setActiveTab] = useState("senior");
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // future login backend logic
+    // Future backend logic here
 
     navigate("/");
   };
@@ -30,14 +30,14 @@ function LoginPage() {
       <div className="absolute top-8 left-8 z-30 hidden md:block">
         <NavLink to="/" className="flex items-center">
           <img
-            src="/logo.png"
+            src="/src/assets/logo.png"
             alt="CampusOrigin Logo"
             className="w-44 object-contain"
           />
         </NavLink>
       </div>
 
-      {/* Background */}
+      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-[400px] h-[400px] bg-cyan-500/10 blur-[120px] rounded-full"></div>
 
@@ -57,11 +57,11 @@ function LoginPage() {
       </div>
 
       {/* Main Container */}
-      <div className="relative z-10 w-full max-w-5xl grid lg:grid-cols-2 overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03] backdrop-blur-3xl">
-        {/* LEFT */}
+      <div className="relative z-10 w-full max-w-6xl grid lg:grid-cols-2 overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03] backdrop-blur-3xl">
+        {/* LEFT SIDE */}
         <div className="relative p-10 lg:p-14 border-b lg:border-b-0 lg:border-r border-white/10">
           {/* Glow */}
-          <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 blur-[120px] rounded-full"></div>
+          <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 blur-[100px] rounded-full"></div>
 
           <div className="relative z-10">
             {/* Badge */}
@@ -69,105 +69,109 @@ function LoginPage() {
               <Sparkles className="w-4 h-4 text-cyan-300" />
 
               <span className="text-sm text-cyan-300 font-medium">
-                CampusOrigin Access Portal
+                CampusOrigin
               </span>
             </div>
 
             {/* Heading */}
             <h1 className="text-5xl lg:text-6xl font-light text-white leading-tight">
-              Welcome
+              Connect.
               <span className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Back.
+                Collaborate.
               </span>
+              <span className="block text-white">Grow Together.</span>
             </h1>
 
             {/* Description */}
             <p className="text-gray-400 text-lg leading-relaxed mt-8 max-w-lg">
-              Continue your journey inside the CampusOrigin ecosystem and stay
-              connected with students, seniors, mentors, communities, and campus
-              opportunities.
+              Join CampusOrigin and become part of a verified student ecosystem
+              built for mentorship, collaboration, innovation, and growth.
             </p>
 
-            {/* Features */}
+            {/* Feature Points */}
             <div className="space-y-5 mt-12">
               {[
-                {
-                  icon: ShieldCheck,
-                  text: "Verified Student Access",
-                },
-
-                {
-                  icon: Users,
-                  text: "Community Networking",
-                },
-
-                {
-                  icon: GraduationCap,
-                  text: "Senior Mentorship Support",
-                },
-              ].map((item, index) => {
-                const Icon = item.icon;
-
-                return (
-                  <div key={index} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl border border-cyan-500/20 bg-cyan-500/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-cyan-300" />
-                    </div>
-
-                    <p className="text-gray-300">{item.text}</p>
+                "Verified Student Network",
+                "Senior-Junior Mentorship",
+                "Skill Based Communities",
+                "AI Powered Lost & Found",
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl border border-cyan-500/20 bg-cyan-500/10 flex items-center justify-center">
+                    <ArrowRight className="w-4 h-4 text-cyan-300" />
                   </div>
-                );
-              })}
+
+                  <p className="text-gray-300">{item}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* RIGHT */}
+        {/* RIGHT SIDE */}
         <div className="relative p-10 lg:p-14">
           {/* Glow */}
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-500/10 blur-[120px] rounded-full"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-500/10 blur-[100px] rounded-full"></div>
 
           <div className="relative z-10">
             {/* Tabs */}
             <div className="flex items-center gap-3 mb-10">
               <button
                 type="button"
-                onClick={() => setActiveTab("student")}
+                onClick={() => setActiveTab("senior")}
                 className={`flex-1 py-4 rounded-2xl border transition-all duration-300 ${
-                  activeTab === "student"
+                  activeTab === "senior"
                     ? "border-cyan-400/40 bg-cyan-500/10 text-white"
                     : "border-white/10 bg-white/[0.03] text-gray-400"
                 }`}
               >
-                Junior Login 
+                Senior Register
               </button>
 
               <button
                 type="button"
-                onClick={() => setActiveTab("senior")}
+                onClick={() => setActiveTab("junior")}
                 className={`flex-1 py-4 rounded-2xl border transition-all duration-300 ${
-                  activeTab === "senior"
+                  activeTab === "junior"
                     ? "border-purple-400/40 bg-purple-500/10 text-white"
                     : "border-white/10 bg-white/[0.03] text-gray-400"
                 }`}
               >
-                Senior Login
+                Junior Register
               </button>
             </div>
 
             {/* Title */}
             <div className="mb-10">
               <h2 className="text-4xl font-semibold text-white">
-                Login To Continue
+                {activeTab === "senior"
+                  ? "Create Senior Account"
+                  : "Create Junior Account"}
               </h2>
 
               <p className="text-gray-400 mt-3">
-                Access your CampusOrigin account securely.
+                Join the verified campus community today.
               </p>
             </div>
 
             {/* Form */}
-            <form className="space-y-6" onSubmit={handleLogin}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {/* Full Name */}
+              <div className="space-y-3">
+                <label className="text-sm text-gray-300">Full Name</label>
+
+                <div className="relative">
+                  <User className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+
+                  <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    required
+                    className="w-full h-16 rounded-2xl bg-white/[0.03] border border-white/10 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none focus:border-cyan-400/40 transition"
+                  />
+                </div>
+              </div>
+
               {/* Email */}
               <div className="space-y-3">
                 <label className="text-sm text-gray-300">College Email</label>
@@ -177,8 +181,46 @@ function LoginPage() {
 
                   <input
                     type="email"
+                    placeholder="Enter college email"
                     required
-                    placeholder="Enter your college email"
+                    className="w-full h-16 rounded-2xl bg-white/[0.03] border border-white/10 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none focus:border-cyan-400/40 transition"
+                  />
+                </div>
+              </div>
+
+              {/* Department */}
+              <div className="space-y-3">
+                <label className="text-sm text-gray-300">Department</label>
+
+                <div className="relative">
+                  <Building2 className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+
+                  <input
+                    type="text"
+                    placeholder="Enter department"
+                    required
+                    className="w-full h-16 rounded-2xl bg-white/[0.03] border border-white/10 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none focus:border-cyan-400/40 transition"
+                  />
+                </div>
+              </div>
+
+              {/* Year */}
+              <div className="space-y-3">
+                <label className="text-sm text-gray-300">
+                  {activeTab === "senior" ? "Passing Year" : "Current Year"}
+                </label>
+
+                <div className="relative">
+                  <GraduationCap className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+
+                  <input
+                    type="text"
+                    required
+                    placeholder={
+                      activeTab === "senior"
+                        ? "Enter passing year"
+                        : "Enter current year"
+                    }
                     className="w-full h-16 rounded-2xl bg-white/[0.03] border border-white/10 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none focus:border-cyan-400/40 transition"
                   />
                 </div>
@@ -193,33 +235,23 @@ function LoginPage() {
 
                   <input
                     type="password"
+                    placeholder="Create password"
                     required
                     minLength={6}
-                    placeholder="Enter your password"
                     className="w-full h-16 rounded-2xl bg-white/[0.03] border border-white/10 pl-14 pr-5 text-white placeholder:text-gray-500 outline-none focus:border-cyan-400/40 transition"
                   />
                 </div>
               </div>
 
-              {/* Forgot */}
-              <div className="flex items-center justify-end">
-                <button
-                  type="button"
-                  className="text-sm text-cyan-300 hover:text-cyan-200 transition"
-                >
-                  Forgot Password?
-                </button>
-              </div>
-
-              {/* Submit */}
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="group relative w-full overflow-hidden rounded-2xl p-[1px] mt-6"
+                className="group relative w-full overflow-hidden rounded-2xl p-[1px] mt-8"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400"></div>
 
                 <div className="relative h-16 rounded-2xl bg-black flex items-center justify-center gap-3 text-white font-medium text-lg group-hover:bg-black/90 transition">
-                  Login Account
+                  Create Account
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition duration-300" />
                 </div>
               </button>
@@ -227,12 +259,12 @@ function LoginPage() {
 
             {/* Footer */}
             <p className="text-gray-500 text-sm text-center mt-8">
-              Don&apos;t have an account?
+              Already have an account?
               <NavLink
-                to="/register"
+                to="/login"
                 className="text-cyan-300 ml-2 hover:text-cyan-200 transition"
               >
-                Create Account
+                Login
               </NavLink>
             </p>
           </div>
@@ -242,4 +274,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;
