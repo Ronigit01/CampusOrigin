@@ -18,8 +18,7 @@ function App() {
   const location = useLocation();
 
   // pages where footer hidden
-  const hideFooterRoutes = ["/register"];
-
+ const hideFooterRoutes = ["/register", "/login"];
   return (
     <>
       <ScrollToTop />
