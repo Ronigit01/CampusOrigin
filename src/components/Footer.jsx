@@ -1,18 +1,8 @@
 import React from "react";
 
-import {
-  GraduationCap,
-  Mail,
-  Phone,
-  MapPin,
-  ArrowUpRight,
-} from "lucide-react";
+import { GraduationCap, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
-import {
-  FaGithub,
-  FaLinkedinIn,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 import { NavLink } from "react-router-dom";
 
@@ -140,8 +130,8 @@ function Footer() {
 
               <p className="max-w-3xl mx-auto text-gray-400 text-lg mt-8 leading-relaxed">
                 Connect with seniors, join communities, recover lost items,
-                collaborate with talented students, and grow together inside
-                one intelligent campus ecosystem.
+                collaborate with talented students, and grow together inside one
+                intelligent campus ecosystem.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-12">
@@ -173,11 +163,7 @@ function Footer() {
           {/* Brand */}
           <div>
             <NavLink to="/" className="inline-block">
-              <img
-                src="/assets/logo.png"
-                alt="CampusOrigin"
-                className="w-44"
-              />
+              <img src="/assets/logo.png" alt="CampusOrigin" className="w-44" />
             </NavLink>
 
             <p className="text-gray-400 leading-relaxed mt-8">
@@ -188,22 +174,31 @@ function Footer() {
 
             {/* Social */}
             <div className="flex items-center gap-4 mt-8">
+              {/* GitHub */}
               <a
-                href="#"
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-2xl border border-white/10 bg-white/[0.03] flex items-center justify-center hover:border-cyan-400/30 transition"
               >
                 <FaGithub className="w-5 h-5 text-white" />
               </a>
 
+              {/* LinkedIn */}
               <a
-                href="#"
+                href="https://linkedin.com/in/campus-origin-5826a240a/?skipRedirect=true"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-2xl border border-white/10 bg-white/[0.03] flex items-center justify-center hover:border-cyan-400/30 transition"
               >
                 <FaLinkedinIn className="w-5 h-5 text-white" />
               </a>
 
+              {/* Instagram */}
               <a
-                href="#"
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-2xl border border-white/10 bg-white/[0.03] flex items-center justify-center hover:border-pink-400/30 transition"
               >
                 <FaInstagram className="w-5 h-5 text-white" />
@@ -213,9 +208,7 @@ function Footer() {
 
           {/* Platform */}
           <div>
-            <h3 className="text-white text-xl font-semibold mb-8">
-              Platform
-            </h3>
+            <h3 className="text-white text-xl font-semibold mb-8">Platform</h3>
 
             <div className="space-y-5">
               {platformLinks.map((item, index) => (
@@ -273,11 +266,6 @@ function Footer() {
                 <Mail className="w-5 h-5 text-cyan-300" />
                 support@campusorigin.com
               </div>
-
-              {/* <div className="flex items-center gap-3 text-gray-400">
-                <Phone className="w-5 h-5 text-cyan-300" />
-                +91 9876543210
-              </div> */}
 
               <div className="flex items-center gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 text-cyan-300" />
